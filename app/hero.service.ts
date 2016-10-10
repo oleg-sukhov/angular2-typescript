@@ -16,6 +16,6 @@ export class HeroService {
     }
 
     getHero(heroId: number): Promise<Hero> {
-        return new Promise<Hero>(resolve => HEROES.find(hero => hero.id === heroId));
+        return Promise.resolve(HEROES.find(hero => hero.id === heroId));
     }
 }

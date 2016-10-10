@@ -7,11 +7,11 @@ import { HeroService } from './hero.service'
 @Component({
     moduleId: module.id,
     selector: 'hero-detail',
-    templateUrl: 'hero-detail.component.html'
+    templateUrl: 'hero-detail.component.html',
+    styleUrls: ['hero-detail.component.css']
 })
-export class HeroDetailComponent implements OnInit{
+export class HeroDetailComponent implements OnInit {
 
-  @Input()
   hero: Hero;
 
   constructor(
@@ -23,7 +23,7 @@ export class HeroDetailComponent implements OnInit{
   ngOnInit() : void {
     this.route.params.forEach((params: Params) => {
       let id = +params['id'];
-      this.heroService.getHero(id).then()
+      this.heroService.getHero(id).then(hero => this.hero = hero);
     });
   }
 
