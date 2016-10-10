@@ -6,6 +6,7 @@ import { HeroDetailComponent} from './hero-detail.component'
 import { HeroesComponent } from './heroes.component'
 import { RouterModule } from '@angular/router'
 import { DashboardComponent} from './dashboard.component'
+import { HeroService } from './hero.service'
 
 @NgModule({
   imports: [ 
@@ -24,6 +25,10 @@ import { DashboardComponent} from './dashboard.component'
       {
         path: 'dash',
         component: DashboardComponent
+      },
+      {
+        path: 'detail/:id',
+        component: HeroDetailComponent
       }
     ])
   ],
@@ -35,6 +40,7 @@ import { DashboardComponent} from './dashboard.component'
   ],
   bootstrap: [
     AppComponent
-  ]
+  ],
+  providers: [ HeroService ] 
 })
 export class AppModule { }
