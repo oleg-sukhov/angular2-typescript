@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core'
 
 import { Contact } from './contact'
 import { ContactService } from './contact.service'
-import { AwesomePipe } from './awesome.pipe'
-import { ContactHighlightDirective } from './contact-hightlight.directive'
-import { UserService } from './../user.service'
+import { AwesomePipe } from './../shared/awesome.pipe'
+import { HightlightDirective } from './../shared/hightlight.directive'
+import { UserService } from './../core/user.service'
 
 @Component({
     moduleId: module.id,

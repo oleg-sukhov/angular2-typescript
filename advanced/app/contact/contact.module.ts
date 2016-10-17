@@ -1,20 +1,13 @@
 import { NgModule } from '@angular/core'
-import { CommonModule } from '@angular/common'
-import { FormsModule } from '@angular/forms'
 
+import { SharedModule } from './../shared/shared.module'
+import { ContactRoutingModule} from './contact-routing.module'
 import { ContactComponent } from './contact.component'
-import { AwesomePipe} from './awesome.pipe'
-import { ContactHighlightDirective } from './contact-hightlight.directive'
 import { ContactService } from './contact.service'
 
 @NgModule({
-    imports: [CommonModule, FormsModule],
-    declarations: [
-        ContactComponent,
-        AwesomePipe,
-        ContactHighlightDirective
-    ],
-    exports: [ContactComponent],
+    imports: [ContactRoutingModule, SharedModule],
+    declarations: [ ContactComponent ],
     providers: [ContactService]
 })
 export class ContactModule {

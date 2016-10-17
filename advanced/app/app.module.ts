@@ -1,20 +1,19 @@
 import { NgModule }      from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { ContactModule} from './contact/contact.module'
+import { AppRoutingModule } from './app-routing.module'
+import { CoreModule } from './core/core.module'
 
 import { AppComponent }  from './app.component'
-import { HightlightDirective } from './hightlight.directive'
-import { TitleComponent }  from './title/title.component'
-import { UserService } from './user.service'
 
 @NgModule({
-  imports: [ BrowserModule, ContactModule],
-  declarations: [ 
-      AppComponent,
-      HightlightDirective,
-      TitleComponent
+  imports: [ 
+    BrowserModule, 
+    ContactModule,
+    AppRoutingModule,
+    CoreModule
   ],
-  bootstrap:    [ AppComponent ],
-  providers: [ UserService ]
+  declarations: [ AppComponent],
+  bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

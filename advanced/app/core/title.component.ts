@@ -1,12 +1,10 @@
 import { Component, Input } from '@angular/core';
-import { HightlightDirective } from './../hightlight.directive';
-import { UserService } from './../user.service';
+import { UserService } from './user.service'
 
 @Component({
     moduleId: module.id,
     selector: 'app-title',
-    templateUrl: 'title.component.html',
-    providers: [UserService]
+    templateUrl: 'title.component.html'
 })
 export class TitleComponent {
     @Input() subtitle = '';
