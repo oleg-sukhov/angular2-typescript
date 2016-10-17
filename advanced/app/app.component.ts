@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TitleComponent } from './title/title.component';
+import { TitleComponent } from './core/title.component';
 import { ContactComponent } from './contact/contact.component';
 
 @Component({

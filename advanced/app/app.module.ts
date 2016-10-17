@@ -11,7 +11,7 @@ import { AppComponent }  from './app.component'
     BrowserModule, 
     ContactModule,
     AppRoutingModule,
-    CoreModule
+    CoreModule.forRoot({userName: 'David Silva'})
   ],
   declarations: [ AppComponent],
   bootstrap:    [ AppComponent ]

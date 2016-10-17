@@ -2,7 +2,7 @@ import { ModuleWithProviders, NgModule, Optional, SkipSelf }  from '@angular/cor
 import { CommonModule } from '@angular/common'
 
 import { TitleComponent} from './title.component'
-import { UserService } from './user.service'
+import { UserService, UserServiceConfig } from './user.service'
 
 @NgModule({
     imports: [ CommonModule ],
@@ -12,4 +12,12 @@ import { UserService } from './user.service'
 })
 export class CoreModule {
 
+  static forRoot(config: UserServiceConfig): ModuleWithProviders {
+    return {
+      ngModule: CoreModule,
+      providers: [
+        { provide: UserServiceConfig, useValue: config }
+      ]
+    };
+  }
 }
