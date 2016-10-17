@@ -3,16 +3,10 @@ import { TitleComponent } from './core/title.component';
 import { ContactComponent } from './contact/contact.component';
 
 @Component({
+    moduleId: module.id,
     selector: 'advanced-app',
-    template:` 
-      <app-title [subtitle]="subtitle"></app-title>
-        <nav>
-          <a routerLink="contact" routerLinkActive="active">Contact</a>
-          <a routerLink="crisis"  routerLinkActive="active">Crisis Center</a>
-          <a routerLink="heroes"  routerLinkActive="active">Heroes</a>
-        </nav>
-      <router-outlet></router-outlet>
-    `
+    templateUrl: 'app.component.html',
+    styleUrls: ['app.component.css']
 })
 export class AppComponent {
     subtitle = '(v1)';
