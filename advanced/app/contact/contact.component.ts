@@ -4,6 +4,7 @@ import { Contact } from './contact'
 import { ContactService } from './contact.service'
 import { AwesomePipe } from './../shared/awesome.pipe'
 import { HightlightDirective } from './../shared/hightlight.directive'
+import { HoverHightlightDirective } from './../shared/hover-hightlight.directive'
 import { UserService } from './../core/user.service'
 
 @Component({
