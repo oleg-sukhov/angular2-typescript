@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { Hero } from './../hero'
-import { HeroService } from './../hero.service'
+import { HeroService } from './hero.service'
 
 @Component({
     moduleId: module.id,
@@ -28,6 +28,6 @@ export class HeroListComponent implements OnInit {
             .subscribe(
                 hero => this.heroes.push(hero),
                 error => this.errorMessage = <any>error
-            ) 
+            )
     }
 }
