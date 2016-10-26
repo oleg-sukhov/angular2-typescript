@@ -7,6 +7,8 @@ import { InMemoryWebApiModule } from 'angular2-in-memory-web-api'
 import { AppComponent } from './app.component'
 import { HeroData } from './hero-data'
 import { HeroListComponent } from './xhr/hero-list.component'
+import { WikiComponent } from './wiki/wiki.component'
+import { WikiSmartComponent } from './wiki/wiki-smart.component'
 import { HeroService } from './xhr/hero.service'
 
 @NgModule({
@@ -18,7 +20,9 @@ import { HeroService } from './xhr/hero.service'
   ],
   declarations: [
     AppComponent,
-    HeroListComponent
+    HeroListComponent,
+    WikiComponent,
+    WikiSmartComponent
   ],
   bootstrap: [
     AppComponent
