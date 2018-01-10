@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Input } from '@angular/core/src/metadata/directives';
+import { Product } from '../shared/product.service'
 
 @Component({
   selector: 'nga-product-item',
@@ -7,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductItemComponent implements OnInit {
 
+  @Input() product: Product;
   constructor() { }
 
   ngOnInit() {
