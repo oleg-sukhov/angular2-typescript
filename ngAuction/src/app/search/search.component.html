@@ -1,6 +1,6 @@
 <form #f="ngForm">
   <mat-input-container>
-    <input matInput type="text" placeholder="Product title" name="title" ngModel>
+    <input #productTitle matInput type="text" placeholder="Product title" name="title" ngModel>
   </mat-input-container>
   <mat-input-container>
     <input matInput type="text" placeholder="Product price" name="price" ngModel> 
@@ -11,4 +11,5 @@
   <button mat-raised-button color="accent" type="submit">
     <mat-icon>search</mat-icon>Search product
   </button>
+
 </form>
