@@ -14,7 +14,7 @@ import { StarsComponent } from './stars/stars.component';
 import { ProductService } from './shared/product.service';
 import { AuctionMaterialModule } from './auction-material/auction-material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -33,7 +33,8 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     AuctionMaterialModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]

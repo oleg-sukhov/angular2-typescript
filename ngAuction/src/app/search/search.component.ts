@@ -1,24 +1,22 @@
 import { Observable } from 'rxjs/Observable';
-import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
+import { Component } from '@angular/core';
 import 'rxjs/add/observable/fromEvent';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/map';
+import { FormControl, NgControl } from '@angular/forms';
 
 @Component({
   selector: 'nga-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css']
 })
-export class SearchComponent implements AfterViewInit {
+export class SearchComponent {
 
-  @ViewChild('productTitle') productTitleField: ElementRef;
+  title: FormControl = new FormControl('')
 
-  ngAfterViewInit() {
-    let keyup$ = Observable.fromEvent(this.productTitleField.nativeElement, 'keyup');
-    let keyupValue$ = keyup$
-    .debounceTime(500)
-    .map(event => event['target'].value)
-    .subscribe(productTitle => console.log(`Value ${productTitle}`))
+  constructor() {
+    this.title.valueChanges
+      .debounceTime(1000)
+      .subscribe(productTitle => console.log(productTitle));
   }
-
 }
