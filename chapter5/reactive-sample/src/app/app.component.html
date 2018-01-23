@@ -7,12 +7,16 @@
 </div>
 <div class="container">
   <label>Simple event:</label><br/>
-  <input id="stock" (keyup)="onKey($event)"><br/>
+  <input id="stock" (keyup)="onKey($event)"><br/><br/><br/>
 
   <label>Simple observable event:</label><br/>
-  <input type="text" #eventObservable placeholder="Enter the text..."><br/>
+  <input type="text" #eventObservable placeholder="Enter the text..."><br/><br/><br/>
 
   <label>Observable event with FormControl:</label><br/>
-  <input placeholder="Enter the text..." [formControl]="formControlObservable"><br/>
+  <input type="text" placeholder="Enter the text..." [formControl]="formControlObservable"><br/><br/><br/>
+
+  <label>Weather:</label><br/>
+  <input type="text" placeholder="Enter location..." [formControl]="weatherLocation"><br/>
+  <p>{{weather}}</p><br/><br/><br/>
 </div>
 
