@@ -7,9 +7,13 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/of';
+import 'rxjs/add/observable/interval';
+import 'rxjs/add/operator/take';
 import {EmptyObservable} from 'rxjs/observable/EmptyObservable';
 import { FormControl } from '@angular/forms'
 import { HttpClient, HttpRequest } from '@angular/common/http';
+import { ProductService, Product } from './product.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -25,8 +29,11 @@ export class AppComponent implements AfterViewInit, OnInit {
   formControlObservable: FormControl = new FormControl('');
   weatherLocation: FormControl = new FormControl('');
   weather: string;
+  numbers: Observable<number> = Observable.interval(1000).take(10)
+  products: Observable<Product[]>;
+  selectedProduct: Product = null
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private productService: ProductService, private _router: Router) {
     this.formControlObservable.valueChanges
       .debounceTime(700)
       .subscribe(text => console.log(`From control text -> ${text}`));
@@ -55,7 +62,8 @@ export class AppComponent implements AfterViewInit, OnInit {
             this.weather = ''
           }
         },
-        err => console.log(`Can't get weather. Error code: %s, URL: %s`, err.message, err.url))
+        err => console.log(`Can't get weather. Error code: %s, URL: %s`, err.message, err.url));
+    this.products = this.productService.getProducts();
   }
 
   private findWeather(location: string) : Observable<any> {
@@ -66,5 +74,10 @@ export class AppComponent implements AfterViewInit, OnInit {
           return Observable.of([]);
         }
       });
+  }
+
+  onSelectProduct(selectedProduct: Product) {
+    this.selectedProduct = selectedProduct;
+    this._router.navigate(["/products", selectedProduct.id])
   }
 }

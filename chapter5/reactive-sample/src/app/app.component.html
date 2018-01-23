@@ -17,6 +17,14 @@
 
   <label>Weather:</label><br/>
   <input type="text" placeholder="Enter location..." [formControl]="weatherLocation"><br/>
-  <p>{{weather}}</p><br/><br/><br/>
+  <p>{{weather}}</p> 
+
+  <p>{{ numbers | async }}</p>
+  <ul>
+    <li *ngFor="let product of products | async" (click)="onSelectProduct(product)" [class.selected]="product==selectedProduct">
+      Title: {{product.title}}, price: {{product.price | currency: 'EUR': true}}
+    </li>
+  </ul>
+  <router-outlet></router-outlet>
 </div>
 
