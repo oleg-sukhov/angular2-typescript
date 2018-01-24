@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductService } from './product.service';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductDetailComponent } from './product-detail/product-detail.component'
+import { FlexLayoutModule } from '@angular/flex-layout'
 
 const routes: Routes = [
   { path: 'products/:id', component: ProductDetailComponent }
@@ -22,7 +23,8 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    FlexLayoutModule
   ],
   providers: [ ProductService ],
   bootstrap: [AppComponent],

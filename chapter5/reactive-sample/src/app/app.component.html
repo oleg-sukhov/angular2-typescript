@@ -26,5 +26,14 @@
     </li>
   </ul>
   <router-outlet></router-outlet>
+
+  <div class="parent" fxLayout="row" fxLayout.lt-md="column">
+    <div fxFlex="30%" class="left">Left</div>
+    <div fxFlex="70%" class="right">Right</div>
+  </div>
+
+  <span *ngIf="showExtras | async">
+    Extra info for large scrrens
+  </span>
 </div>
 

@@ -14,6 +14,7 @@ import { FormControl } from '@angular/forms'
 import { HttpClient, HttpRequest } from '@angular/common/http';
 import { ProductService, Product } from './product.service';
 import { Router } from '@angular/router';
+import { ObservableMedia } from '@angular/flex-layout';
 
 
 @Component({
@@ -29,15 +30,24 @@ export class AppComponent implements AfterViewInit, OnInit {
   formControlObservable: FormControl = new FormControl('');
   weatherLocation: FormControl = new FormControl('');
   weather: string;
-  numbers: Observable<number> = Observable.interval(1000).take(10)
+  numbers: Observable<number> = Observable.interval(1000).take(10);
   products: Observable<Product[]>;
-  selectedProduct: Product = null
+  selectedProduct: Product = null;
+  showExtras: Observable<boolean>;
 
-  constructor(private http: HttpClient, private productService: ProductService, private _router: Router) {
+  constructor(private http: HttpClient, 
+              private productService: ProductService, 
+              private _router: Router,
+              private obsarvableMedia: ObservableMedia ) {
     this.formControlObservable.valueChanges
       .debounceTime(700)
       .subscribe(text => console.log(`From control text -> ${text}`));
+    this.showExtras = this.obsarvableMedia.asObservable().map(mediaChanges => {
+      console.log(mediaChanges.mqAlias);
+      return mediaChanges.mqAlias == 'lg' ? true : false;
+    })
   }
+  
   public onKey({target}) : void {
     console.log(`Typed -> ${target.value}`);
   }
