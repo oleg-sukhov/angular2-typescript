@@ -1,0 +1,21 @@
+@import '../styles/theme';
+
+:host {
+  display: block;
+  height: 100%;
+}
+
+.toolbar {
+  background-color: mat-color($nga-background, card);
+  position: relative;
+  box-shadow: 0 1px mat-color($nga-foreground, divider);
+}
+.toolbar__logo-title-group {
+  position: absolute;
+  right: 50%;
+  left: 50%;
+}
+.toolbar__logo {
+  height: 32px;
+  margin-right: 4px;
+}
