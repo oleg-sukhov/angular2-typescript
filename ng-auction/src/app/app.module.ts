@@ -4,6 +4,9 @@ import { MatButtonModule, MatIconModule, MatToolbarModule } from '@angular/mater
 import { FlexLayoutModule } from '@angular/flex-layout'
 import { HttpClientModule } from '@angular/common/http'
 import { AppComponent } from './app.component';
+import { ProductService } from './shared/services';
+import { RouterModule } from '@angular/router';
+import { routes } from './app.routing';
 
 
 @NgModule({
@@ -16,9 +19,10 @@ import { AppComponent } from './app.component';
     MatIconModule,
     MatToolbarModule,
     FlexLayoutModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
