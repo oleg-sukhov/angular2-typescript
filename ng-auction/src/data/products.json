@@ -71,7 +71,6 @@
     "price" : 70,
     "title" : "Sunglasses"
   },
-  [
   {
     "id": 10,
     "description" : "Be an optimist. Carry Sunglasses with you at all times...",
@@ -144,6 +143,4 @@
     "price" : 70,
     "title" : "Sunglasses"
   }
-]
-
 ]
