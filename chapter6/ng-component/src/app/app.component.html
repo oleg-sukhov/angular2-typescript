@@ -1,2 +1,11 @@
-<input type="text" placeholder="Enter stock (e.g. AAPL)" (change)="onChangeEvent($event)">
-<order-processor [stockSymbol]="stock" [quantity]="numberOfShares"></order-processor>
+<input type="text" placeholder="Enter stock (e.g. AAPL)" (keyup)="onChangeEvent($event)">
+<br/><br/>
+
+AppComponent received: {{priceQuote?.stockSymbol}}
+                           {{priceQuote?.lastPrice | currency:'USD':'symbol'}}
+<br/>
+<price-quoter (lastPrice)="priceQuoteHandler($event)" (bidPrice)="buy($event)"></price-quoter>
+
+<br/>
+
+<order-processor [stockSymbol]="stock" [quantity]="numberOfShares" [stock]="receivedStock"></order-processor>
